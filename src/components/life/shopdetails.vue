@@ -7,11 +7,16 @@
 					<router-link :to="{name : 'shoppingHome'}" tag="span" class="conprev ch3" ><a href="javascript:void(0);">购物车 <img style="width: 0.5rem;height: 1rem;margin:-0.1rem 0.3rem 0 0;" src="../../images/life_next_pages_arrow@2x.png"></a></router-link>
 				</div>					
 			</div>
-			<div class="dcon_fix"><span><em class="d_prem"><font id="pp_pr" data-cost="398.00" style="font-size:22px;padding-left:0.6rem;">￥<font class="pp_pr11" style="font-weight: bold;color: #DE6C12;">{{shopDetail.price}}</font><font style="font-weight: normal!important;color:#888;font-size:12px;display:inline-block;">元/{{shopDetail.unit}}</font></font></em></span>
-				<span class="plustext fr p_re lgadd">
+			<div class="dcon_fix"><span><em class="d_prem"><font id="pp_pr" style="font-size:22px;padding-left:0.6rem;">￥<font class="pp_pr11" style="font-weight: bold;color: #DE6C12;">{{shopDetail.price}}</font><font style="font-weight: normal!important;color:#888;font-size:12px;display:inline-block;">元/{{shopDetail.unit}}</font></font></em></span>
+				<!--<span class="plustext fr p_re lgadd">
 					<button type="button" class="lgplus" v-on:mousedown="redCommodity()" >-</button>
 					<input  v-model="shopDetail.num" id="shopNum" type="tel" class="addtext" maxlength="3" readonly="readonly">
-					<button type="button" class="lgminus" v-on:mousedown="addCommodity($event)" >+</button></span>
+					<button type="button" class="lgminus" v-on:mousedown="addCommodity($event)" >+</button></span>-->
+						<div class="commodity-choice comm-li-info" style="bottom: 0.3rem;">
+							<div class="commodity-change-j" v-on:mousedown="redCommodity()" ></div>
+							<div class="commodity-change-input" v-text="shopDetail.num"></div>
+							<div class="commodity-change-z" v-on:mousedown="addCommodity()" ></div>		
+						</div>
 			</div>	
 		</header>
 		<section class="main fixed">
@@ -109,13 +114,13 @@
                 if (window.history && window.history.pushState)window.history.back();
             },
 		    redCommodity:function(){
-		    	var inputElement = document.getElementById("shopNum");
-		    	inputElement.value = Number(inputElement.value) > 0?Number(inputElement.value)-1:0;
+		    	var inputElement = document.getElementsByClassName("commodity-change-input")[0];
+		    	inputElement.innerText = Number(inputElement.innerText) > 0?Number(inputElement.innerText)-1:0;
 				changeLocalStorage(false,this.shopDetail);
 		    },
 		    addCommodity:function(){
-		    	var inputElement = document.getElementById("shopNum");
-		    	inputElement.value = Number(inputElement.value) + 1;
+		    	var inputElement = document.getElementsByClassName("commodity-change-input")[0];
+		    	inputElement.innerText = Number(inputElement.innerText) + 1;
 		    	changeLocalStorage(true,this.shopDetail);
 		    },
 		    initNum:function(shopCart,shopDetail){

@@ -89,10 +89,11 @@
 					</li>
 				</ul>
 			</div>
-			<div class="clear clearfix logoutbox" v-on:mousedown="outLogin()" >
+			<!--<div class="clear clearfix logoutbox" v-on:mousedown="outLogin()" >
 				<a href="javascript:void(0);">退出登录 </a>
-			</div>
-			<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
+			</div>-->
+			<div class="account"><div class="account-btn" v-on:mousedown="outLogin()" >退出登录</div></div>
+			<!--<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>-->
 		</div>
 		<div id="signTake" class="nsigninbox">
 			<div class="pos_title clearfix clear"><span class="pos_hide radius5 fl" v-on:click="signHide()" >取消</span></div>
@@ -107,6 +108,14 @@
 	}
 	#memberHome .hotel-copyright{
 		margin-bottom: 50px;
+	}
+	#memberHome .nmemlist li .bgstyle{
+		
+	}
+	#memberHome .nmemlist{
+		margin-top: 0.67rem;
+		padding: 0;
+		background-color: #fff;
 	}
 </style>
 <script type="text/javascript">

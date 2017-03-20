@@ -2,34 +2,18 @@
 	<div id="personInfo" style="position: relative;">
 		<section class="main fixed">
 			<article class="content">
-				<!--<div class="bgstyle" style="font-size:12px;">
-					<p><strong>请补充您的个人信息:</strong></p>
-					<p>*补充完整以下个人信息，就可以轻松在我们这里下单操作啦！<br>*web登录名用于您在手机浏览器端或者电脑端登陆您的账号使用。</p>
-				</div>
-				<div class="bgstyle" style="font-size:12px;">
-					<p><strong> 商家没有开启平台短信服务。暂时无法验证您的手机号。</strong></p>
-				</div>-->
 				<div class="bgstyle clear customer">
-					<dl class="member-name"><dt>会员ID</dt>
-						<dd>{{personInfo.id}}</dd>
-					</dl>
 					<dl><dt>名字</dt>
 						<dd><input name="xm" v-model="personInfo.nickname" type="text" class="borderstyle radius5" maxlength="30" placeholder="请补充您的姓名/称呼"></dd>
 					</dl>
 					<dl><dt>电话 </dt>
 						<dd><input name="tel" v-model="personInfo.phone" type="tel" class="borderstyle radius5" maxlength="11" placeholder="在这里补充您的联系电话"></dd>
 					</dl>
-					<dl><dt>地址 </dt>
-						<dd><input name="dz" v-model="personInfo.address" type="text" class="borderstyle radius5" maxlength="50" placeholder="在这里补充您的地址"></dd>
-					</dl>
 					<dl><dt>Email </dt>
 						<dd><input name="femailaddress" v-model="personInfo.email" type="text" class="borderstyle radius5" maxlength="30" placeholder="在这里填写您的邮箱地址"></dd>
 					</dl>
 					<dl><dt>QQ号 </dt>
 						<dd><input name="foicq" v-model="personInfo.qq" type="tel" class="borderstyle radius5" maxlength="30" placeholder="在这里填写您的QQ号"></dd>
-					</dl>
-					<dl><dt>web登陆名</dt>
-						<dd><input name="webloginname" v-model="personInfo.username" type="text" class="borderstyle radius5" maxlength="30" placeholder="用于web端登陆用户名" readonly="readonly"></dd>
 					</dl>
 					<dl><dt>登陆密码</dt>
 						<dd><input class="borderstyle radius5" v-model="personInfo.password" type="password" name="passwordone" placeholder="需要修改密码请输入，不修改请留空。"></dd>
@@ -38,8 +22,11 @@
 						<dd><input id="checkPwd" class="borderstyle radius5" type="password" name="passwordsecond" value="" placeholder="再次输入一次刚才的密码"></dd>
 						<p id="checkPwds" >*两次密码不一致</p>
 					</dl>
+					<dl class="r-address"><dt>地址 </dt>
+						<dd><input name="dz" v-model="personInfo.address" type="text" class="borderstyle radius5" maxlength="50" placeholder="在这里补充您的地址"></dd>
+					</dl>					
 					<dl><dt>生日</dt>
-						<dd><input v-model="personInfo.birthday" class="borderstyle radius5" type="text" placeholder="格式为:yyyy-mm-dd或者yyyy/mm/dd"></dd>
+						<dd><input v-model="personInfo.birthday" class="borderstyle radius5" type="date" placeholder="格式为:yyyy-mm-dd或者yyyy/mm/dd"></dd>
 						<p id="checkDeta" >*日期格式不正确</p>
 					</dl>
 					<!--<dl id="UdateChoose"><dt>&nbsp;生日选择</dt>
@@ -52,15 +39,31 @@
 						</dd>
 					</dl>-->
 				</div>
-				<div class="bgstyle account"><div class="account-btn" v-on:mousedown="submitInfo()" >确认保存</div></div>
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
+				<div class="account"><div class="account-btn" v-on:mousedown="submitInfo()" >确认保存</div></div>
+				<!--<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>-->
 			</article>	
+			
 		</section>
 	</div>
 </template>
 <style>
 	#personInfo{
 		font-size: 14px;
+	}
+	#personInfo .customer{
+		margin-top: 0;
+		background: 0;
+		box-shadow: none;
+		font-size: 0.9rem;
+	}
+	#personInfo .customer input{
+		font-size: 0.9rem;
+	}
+	#personInfo .customer dl{
+		background-color: #fff;
+	}
+	#personInfo .customer dl.r-address{
+		margin-top: 0.67rem;
 	}
 	#personInfo .member-name dd{
 		padding: 10px 0 0 15px;
