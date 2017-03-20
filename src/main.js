@@ -3,8 +3,7 @@ import VueResource from 'vue-resource'
 //注册模块插件
 Vue.use(VueResource);
 //引入全局插件及公共样式
-require("./js/plugins/layer/layer.js");
-//require(["./js/plugins/layer/layer.js","./css/common.css","./css/memberHome.css","./css/shopdetails.css"]);
+require(["./js/plugins/layer/layer.js","./css/common.css","./css/memberHome.css","./css/shopdetails.css"]);
 window.iscrollUtils = require("./js/plugins/iscroll/scripts/iscrollUtils.js");
 window.configuration = {
 	"global": {

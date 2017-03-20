@@ -30,7 +30,7 @@
 .shoping-commoditys li .infor-p-span{
 	font-size: 1.0666666666666667rem;
 	color: #de4c18;
-	/*font-weight:bold;*/
+	font-weight:bold;
 }
 .shoping-commoditys li .infor-j-span{
 	padding-left:1rem;
@@ -47,7 +47,7 @@
 	width: auto;
 	height: 2rem;
 	line-height: 2rem;
-	/*border-bottom: 1px solid #E5E5E5;*/
+	border-bottom: 1px solid #E5E5E5;
 	background-color: #f9f9f9;
 	padding: 0 0.8rem;
 	font-size: 1rem;
@@ -86,28 +86,23 @@
 	background-color: #fff;
 }
 .pice-mode .pice-mode-choice span{
-	position: relative;
-	top: 1px;
 	display: inline-block;
 	width: auto;
-	height: 2rem;
-	line-height: 2rem;
-	border: 1px solid #ccc;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	border: 1px solid #666;
 	border-radius: 5px;
 	color: #666;
-	font-size: 0.8rem;
+	font-size: 0.9333333333333333rem;
 	margin-right: 0.6666666666666666rem;
 	padding: 0 0.5rem;
-	-webkit-tap-highlight-color: rgba(200,200,200,0);
 }
 .pice-mode .pice-mode-choice span.active{
-	position: inherit;
 	background:url(../../images/shop_cart_selected@2x.png);
 	background-size: 100% 100%;
 	border: 0;
 	border-radius: 0;
 	color: #d83200;	
-	-webkit-tap-highlight-color: rgba(200,200,200,0);
 }
 .order-information{
 	position: relative;
@@ -116,10 +111,6 @@
 	height: 14.666666666666666rem;
 	margin-bottom: 1rem;
 	background-color: #fff;
-	padding-left: 0.8rem;
-}
-.order-information .o-details-n{
-	padding: 0!important;
 }
 .order-information .o-room-infor{
 	width: 100%;
@@ -133,9 +124,9 @@
 	display: inline-block;
 	width: 20%;
 	height: auto;
-	text-align: left;
+	text-align: right;
 	padding-right:0.6666666666666666rem;
-	/*background-color: #F9F9F9;*/
+	background-color: #F9F9F9;
 }
 .order-information .o-room-infor input,.order-information .o-room-beizhu textarea{
 	position: relative;
@@ -145,29 +136,26 @@
 	border: 0;
 	font-size:0.8666666666666667rem;
 	color: #000;
-	padding-left: 0.3rem;
 }
 .order-information .o-room-beizhu textarea{
 	height: 100%;
 	width: 100%;
 }
 .order-information .o-room-beizhu{
-	position: absolute;
-	left: 0;
 	width: 100%;
 	height: 7rem;
 	border-bottom: 1px solid #E5E5E5;
 	font-size:0.9333333333333333rem;
 	color: #000;	
-	background-color: #fff;
 }
 .order-information .o-room-beizhu span{
 	display: inline-block;
 	float: left;
 	width: 20%;
 	height: 6.933333333333334rem;
-	text-align: left;
-	padding-left:0.6666666666666666rem;
+	text-align: right;
+	padding-right:0.6666666666666666rem;
+	background-color: #F9F9F9;
 	padding-top: 0.3333333333333333rem;
 }
 .order-information .o-room-beizhu > div{
@@ -246,39 +234,4 @@
 	color: #fff;
 	font-size: 1.1rem;
 	margin-top: 1rem;
-}
-.orders-hide-img{
-	background: url("../../images/shop_up_arrow@2x.png") no-repeat;
-	background-size:100%;
-}
-.is-show .orders-hide-img{
-	background: url("../../images/shop_down_arrow@2x.png") no-repeat;
-	background-size:100%;
-}
-.all-li-pay{
-	width: 100%;
-	height: 1.23rem!important;
-	background-color: #fff;
-	padding-right: 0.38rem;
-	font-size: 1rem;
-	color: #d83200;
-	border-bottom: 0!important;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: center;
-	align-items: center;
-	-webkit-justify-content: flex-end;
-	justify-content: flex-end;	
-	font-weight: 550;	
-}
-.pay-tips{
-    position: absolute;
-    top: 0.4rem;	
-    display: inline-block;
-    width: 2px;
-    height: 1.2rem;
-    background-color: #80ba63;
-}
-.pay-tips-name{
-	margin-left: 0.5rem;
 }

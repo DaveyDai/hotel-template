@@ -8,8 +8,7 @@
 				<div class="myReser-conter" id="reserall">
 					<li v-for="item in reserveList" >
 						<div class="myReser-conter-img"><img src="../../images/member_order_head_image@2x.png"/></div>
-						<div class="myRescon-explant"><p class="r-explant-title">{{item.reserve_name}}</p><p>房间号:&nbsp;&nbsp;{{item.number}}</p><p>备注:&nbsp;&nbsp;{{item.note}}</p><p>电话:&nbsp;&nbsp;{{item.phone}}</p><p>时间:&nbsp;&nbsp;{{item.reserve_time}}</p></div>
-						<div class="rescon-start" v-text="item.status==0&&'预定成功'||'预定失败'"></div>
+						<div class="myRescon-explant"><p class="r-explant-title">{{item.reserve_name}}</p><p>人数:  {{item.number}}</p><p>备注:  {{item.note}}</p><p>电话: {{item.phone}}</p><p>时间:  {{item.reserve_time}}</p></div>
 					</li>
 				</div>
 				<div class="myReser-conter-no" style="display: none;" id="reserNo">
@@ -86,14 +85,10 @@
 		line-height: 1.2rem;
 		margin-top: 0.5rem;
 	}
-	/*.myReser-conter li .myRescon-explant p{
-		line-height: 1.2rem;
-	}*/
 	.myReser-conter li .r-explant-title{
 		line-height: 1.5rem;
 		font-size: 0.9333333333333333rem;
 		color: #000;
-		font-weight: bold;
 	}
 	.myReser-conter-no{
 		width: 100%;
@@ -114,13 +109,6 @@
 		color: red;
 		border-radius: 5px;
 	}	
-	.rescon-start{
-	    position: absolute;
-	    right: 1.1rem;
-	    font-size: 0.86rem;
-	    color: #00b9a4;
-	    margin-top: 0.6rem;		
-	}
 </style>
 <script type="text/javascript">
     export default {

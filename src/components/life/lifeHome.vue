@@ -27,9 +27,9 @@
 							<div class="hotel-lists hotel-list-change">
 								<!--<div class="hotel-change-hot">热销</div>-->
 								<div class="hotel-change-hot" v-if="item.is_hot==1" >火爆</div>
-								<div class="commodity-change-j" v-on:mousedown.stop="redCommodity(item,$event)" v-bind:style="{display:!!item.num&&'block'||'none'}" ></div>
+								<div class="commodity-change-j" v-on:mousedown.stop="redCommodity(item,$event)" v-bind:style="{display:!!item.num&&'block'||'none'}" >一</div>
 								<div class="commodity-change-input commodityNum" v-bind:style="{display:!!item.num&&'block'||'none'}" >{{item.num}}</div>
-								<div class="commodity-change-z" v-on:mousedown.stop="addCommodity(item,$event)" ></div>
+								<div class="commodity-change-z" v-on:mousedown.stop="addCommodity(item,$event)" >+</div>
 								<div class="commodity-change-1 c-red1">-1</div>
 								<div class="commodity-change-1 c-add1">+1</div>
 							</div>
@@ -48,6 +48,7 @@
 					
 					</div>
 				</div>
+				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
 			</article>
 		</section>
 	</div>

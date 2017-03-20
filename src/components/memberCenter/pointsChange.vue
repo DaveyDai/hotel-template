@@ -30,6 +30,7 @@
 </template>
 <style>
 	.points-tall{
+		padding:10px 0 0 0;
 		background-color: #fff;
 	}
 	#pointsChange .re-w1{

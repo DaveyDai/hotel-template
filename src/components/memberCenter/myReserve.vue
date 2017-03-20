@@ -174,7 +174,6 @@
 	}
 	#myReserve .customer{
 		margin-top: 0;
-		box-shadow: none;
 	}
 	#myReserve .customer .beizhushuom{
 		border: 0;
