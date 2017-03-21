@@ -2,60 +2,28 @@
 	<div id="bulletinBoard" style="position: relative;">
 		<section class="main fixed">
 			<article class="content">
-				<div class="boardHeard" v-on:mousedown="backPage()" ><img src="../../images/life_previous_pages_arrow@2x.png"/><span>万达广场</span></div>
-				<div class="board-conter">
-					<p class="board-conter-c">{{getNotice.text}}</p>
-					<p class="board-conter-t">{{getNotice.time}}</p>
+				<div class="mess-bulls">
+					<div class="bulls-mess-img"><img src="../../images/home_news_img@2x 2.png"/></div>
+					<div class="bulls-mess-contenx">
+						<div class="bulls-mess-titel">
+							<span class="title-t-n">最新咨询</span><span class="title-mess-time">2017年3月21日 15:29:24</span>
+						</div>
+						<div class="bull-mess-c">恭喜万达广场商城阳光公众平台（微商城）正式起航。我的地盘，我做主</div>
+					</div>	
 				</div>
-				<div class="hotel-page">
-					<div class="hotel-page-b">
-						<img src="../../images/life_previous_pages_arrow@2x.png"/>
-						<span class="hotel-page-back">已到首页</span>							
-					</div>
-					<span class="hotel-pages-th">1/1</span>
-					<div class="hotel-page-n">
-						<span class="hotel-page-next">已到尾页</span>
-						<img src="../../images/life_next_pages_arrow@2x.png"/>
-					</div>
-				</div>				
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
+				<div class="mess-bulls">
+					<div class="bulls-mess-img"><img src="../../images/home_recommend_img@2x 2.png"/></div>
+					<div class="bulls-mess-contenx">
+						<div class="bulls-mess-titel">
+							<span class="title-t-n">今日推荐</span><span class="title-mess-time">2017年3月21日 15:29:24</span>
+						</div>
+						<div class="bull-mess-c">恭喜万达广场商城阳光公众平台（微商城）正式起航。我的地盘，我做主</div>
+					</div>	
+				</div>
 			</article>	
 		</section>
 	</div>
 </template>
-<style>
-	.boardHeard{
-		width: 100%;
-		height: 3rem;
-		line-height: 3rem;
-		font-size: 1.4rem;
-		border-bottom: 1px solid #ccc;
-	}
-	.boardHeard img{
-		width: 0.7rem;
-		height: 1.25rem;
-		margin-left: 0.5rem;
-	}
-	.boardHeard span{
-		margin-left: 35%;
-	}
-	.board-conter{
-		width: 100%;
-		height: auto;
-		background-color: #fff;
-	}
-	.board-conter .board-conter-c{
-		padding: 1.6rem;
-		font-size: 1.2rem;
-		color: #393939;
-	}
-	.board-conter .board-conter-t{
-		text-align: right;
-		padding: 0.5rem 1.6rem;
-		font-size: 1.1rem;
-		color: #999;
-	}
-</style>
 <script type="text/javascript">
     export default {
         data: function(){
@@ -69,6 +37,7 @@
 	      	console.log("加载首页...");
         	var scrollerConHeight = $(window).height() - $("#afui #footer").height();//页面内容高度
             $("#messageboard").css("overflow-y", "auto").css("overflow-x","hidden").css("height", scrollerConHeight + "px");
+//          this.getNotice();
         },
         methods: {
             backPage: function () {
@@ -91,3 +60,50 @@
         }
     }
 </script>
+<style>
+	#bulletinBoard .content{
+		padding: 0 0.67rem;
+		background-color: #fff;
+	}
+	.mess-bulls{
+		position: relative;
+		width: 100%;
+		height: 5.833333333333333rem;
+		border-bottom: 1px solid #E5E5E5;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+	.mess-bulls .bulls-mess-img{
+		padding: 0 0.93rem 0.67rem 0.2rem;
+	}
+	.mess-bulls .bulls-mess-img img{
+		width: 2.9rem;
+		height: 2.9rem;
+	}
+	.bulls-mess-contenx{
+		padding-top: 0.4rem;
+	}
+	.bulls-mess-contenx .bulls-mess-titel{
+		height: 2rem;
+		line-height: 2rem;
+	}
+	.bulls-mess-contenx .title-t-n{
+		height: 2rem;
+		line-height: 2rem;
+		font-size: 1rem;
+		color: #333;
+		font-weight: bold;
+	}
+	.bulls-mess-contenx .bull-mess-c{
+		font-size: 0.87rem;
+		color: #666;
+	}
+	.bulls-mess-contenx .title-mess-time{
+		position: absolute;
+		right: 0;
+		font-size: 0.87rem;
+		color: #999;		
+	}
+</style>

@@ -240,35 +240,29 @@ section.main.fixed > article{
 	margin: 0 0.23333333333333334rem;  
 }
 .commodity-change-j{
-	width: 1.4666666666666666rem;
-	height: 1.4666666666666666rem;
-	line-height: 1.4666666666666666rem;
-	text-align: center;
+	width: 1.8rem;
+	height: 1.8rem;
 	border-radius: 50%;
-	color: #fff;
-	background-color: #80ba63;
-	font-size: 1rem;
-	font-weight:bold;
+	background: url(../images/shop_decrease@2x.png) no-repeat;
+	background-size: 100%;
 }
 .commodity-change-input{
 	width: 1.8rem;
-	height: 1.4666666666666666rem;
-	line-height: 1.2666666666666666rem;
+	height: 1.5rem;
+	line-height: 1.4rem;
 	text-align: center;	
 	color: #000;
 	border-radius: 5px;
-	border: 2px solid #989898;
-	font-size:1rem;
+	border: 1px solid #989898;
+	font-size:0.86rem;
+	margin-top: 0.18rem!important;
 }
 .commodity-change-z{
-	width: 1.4666666666666666rem;
-	height: 1.4666666666666666rem;
-	line-height: 1.2rem;
-	text-align: center;
+	width: 1.8rem;
+	height: 1.8rem;
 	border-radius: 50%;
-	color: #fff;
-	background-color: #80ba63;
-	font-size: 1.6666666666666667rem;
+	background: url(../images/shop_increase@2x.png) no-repeat;
+	background-size: 100%;
 }
 /*购物车状态*/
 .commodity-change-1{
@@ -293,7 +287,7 @@ section.main.fixed > article{
 	background-color: #fff;
 	color: #333;
 	font-size:1rem;
-	border-top: 1px solid #E5E5E5;
+	/*border-top: 1px solid #E5E5E5;*/
 }
 .hotel-page img{
 	width: 0.4666666666666667rem;
@@ -324,17 +318,18 @@ section.main.fixed > article{
 /*提交button*/
 .account{
     height: 5rem;
-    text-align: center;		
+    text-align: center;	
 }
 .account-btn{
-	margin: 1.7rem 5%;
     width: 90%;
-    height: 2.5rem;
-    line-height: 2.5rem;		
+    height: 2.67rem;
+    line-height: 2.67rem;		
     font-size: 1.1rem;
     color: #fff;
     background-color: #14B6F5;
     border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 2.5rem;
 }
 /*引入样式*/
 .customer dt {

@@ -17,7 +17,7 @@
 									<div class="nlyb_adthree"></div>
 									<em>{{messItem.name||'匿名'}}</em>回复：<span class="nlyb_empty">{{messItem.text}}</span>
 								</div>
-								<div class="mess-reinput" v-on:click="messageInput(item.id)" >回复</div>
+								<div class="mess-reinput" v-on:click="messageInput(item.id)" ></div>
 							</li>
 						</ul>
 					</div>
@@ -49,6 +49,7 @@
 	#messageboard .nlyb_admin em{
 		color: #039cf9;
 		padding-right: 10px;
+		text-decoration: underline;
 	}
 	#messageboard .mess-reinput{
 	    width: 3.8rem;
@@ -59,7 +60,10 @@
 	    border-radius: 9px;
 	    color: #fff;
 	    font-size: 0.9rem;
-	    margin-left: 80%;		
+	    margin-left: 80%;
+	    background: url(../../images/member_whole_reply_img.png) no-repeat;
+	    background-size: 100%;		
+	    margin-top: 1rem;
 	}
 </style>
 <script type="text/javascript">

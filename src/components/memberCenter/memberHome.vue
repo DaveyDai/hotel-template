@@ -22,7 +22,7 @@
 			<div class="clearfix nmemlist">
 				<ul>
 					<li>
-						<div class="bgstyle nsignin noshadow" v-on:click="signShow()" >
+						<div class="bgstyle nsignin noshadow" v-on:click="signCheck()" >
 							<div class="nmemlist1"><img src="../../images/member_sign_in@2x.png" /></div>
 							<div class="nmemlist2">每日签到</div>
 						</div>
@@ -89,26 +89,32 @@
 					</li>
 				</ul>
 			</div>
-			<div class="clear clearfix logoutbox" v-on:mousedown="outLogin()" >
+			<!--<div class="clear clearfix logoutbox" v-on:mousedown="outLogin()" >
 				<a href="javascript:void(0);">退出登录 </a>
-			</div>
-			<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
+			</div>-->
+			<div class="account"><div class="account-btn" v-on:mousedown="outLogin()" >退出登录</div></div>
+			<!--<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>-->
 		</div>
-		<div id="signTake" class="nsigninbox">
+		<div id="signCheckN" class="sign-page-tips" style="display: none;">
+			<div class="tips-sign-content">
+				<div class="tips-title-ok">
+					<img src="../../images/member_success_img@2x.png"/>
+					<span class="title-tip-yes">签到成功</span>
+					<div class="tips-fenge"></div>
+				</div>
+				<div class="tips-title-silist">
+					<p>恭喜您！您连续签到3天</p>
+					<div class="sign-tipss-to" @click="checkSignList()">签到记录</div>
+				</div>
+			</div>
+			<div class="sign-tips-img" v-on:click="signHide()" ><img src="../../images/member_close_img@2x.png"/></div>
+		</div>		
+		<!--<div id="signTake" class="nsigninbox">
 			<div class="pos_title clearfix clear"><span class="pos_hide radius5 fl" v-on:click="signHide()" >取消</span></div>
 			<div class=""><span class="ndayin"><a v-on:click="signCheck()" class="radius5" href="javascript:void(0);">点击这里签到哦</a></span><span class="ndayin"><router-link :to="{name:'signPage'}" class="radius5" href="javascript:void(0);">查看签到记录</router-link></span></div>
-		</div>		
+		</div>		-->
 	</div>
 </template>
-<style>
-	.bgstyle{
-		margin: -1px!important;
-		box-shadow: 0 0 1px #777 inset;
-	}
-	#memberHome .hotel-copyright{
-		margin-bottom: 50px;
-	}
-</style>
 <script type="text/javascript">
     export default {
         data: function(){
@@ -122,22 +128,14 @@
             this.getPersonInfo();
         },
         methods: {
-			signShow:function(){
-		    	$("#memberHome #signTake").show().animate({bottom:0},300);				
-			},
 			signHide:function(){
-				$("#memberHome #signTake").animate({bottom:"-200px"},300,"linear",function(){
-					$(this).hide();
-				});
+				$("#memberHome #signCheckN").hide();
 			},
 		    signCheck:function(){
 		        this.$http.post(configuration.global.serverPath + "/api/Personal/signIn",{token:sessionStorage.getItem("token")},{headers: {'Content-Type': 'application/x-www-form-urlencoded'},emulateJSON:true}).then(function (response) {
 		         	var results = response.data;
 		         	if(results.code === 200){
-		         		layerUtils.iAlert("签到成功");
-						$("#memberHome #signTake").animate({bottom:"-200px"},300,"linear",function(){
-							$(this).hide();
-						});		         		
+		         		$("#memberHome #signCheckN").show();
 		         	}else{
 		         		layerUtils.iAlert(results.message||"请求服务器失败");
 		         	}
@@ -161,7 +159,117 @@
 		        }, function (response) {
 		        	layerUtils.iAlert("连接服务器失败，请联系管理员");
 		        });			    		
-		    }		    
+		    },
+		    checkSignList:function(){
+		    	this.$router.push({name:"signPage"});
+		    }
         }
     }
 </script>
+<style>
+	.bgstyle{
+		margin: -1px!important;
+		box-shadow: 0 0 1px #777 inset;
+	}
+	#memberHome .hotel-copyright{
+		margin-bottom: 50px;
+	}
+	#memberHome .nmemlist li .bgstyle{
+		
+	}
+	#memberHome .nmemlist{
+		margin-top: 0.67rem;
+		padding: 0;
+		background-color: #fff;
+	}
+	/*签到弹出层*/
+	.sign-page-tips{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,.6);
+		z-index: 3000;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-flex-direction:column;
+		flex-direction: column;
+	}
+	.sign-page-tips .tips-sign-content{
+		position: relative;
+		width: 60%;
+		height: 9.8rem;
+	}
+	.sign-page-tips .tips-title-ok{
+		position: relative;
+		width: 100%;
+		height: 3.6666666666666665rem;
+		background-color:#fff6da;
+		border-top-left-radius: 0.7333333333333333rem;
+		border-top-right-radius: 0.7333333333333333rem;
+		font-size: 1.2rem;
+		color: #f05638;
+		font-weight: bold;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		-webkit-justify-content: center;
+		justify-content: center;
+	}
+	.sign-page-tips .tips-title-ok img{
+		width: 2.3666666666666667rem;
+		height: 2.3666666666666667rem;
+	}
+	.sign-page-tips .tips-title-ok img{
+		width: 2.3666666666666667rem;
+		height: 2.3666666666666667rem;
+	}
+	.sign-page-tips .title-tip-yes{
+		margin-bottom: 1.5rem;
+	}
+	.sign-page-tips .tips-fenge{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 0.14rem;
+		background: url(../../images/member_img@2x.png) no-repeat;
+		/*background-size:100% ;*/
+		
+	}
+	.sign-page-tips .tips-title-silist{
+		width: 100%;
+		height: 5.833333333333333rem;
+		background-color: #14B6F5;
+		border-bottom-left-radius: 0.7333333333333333rem;
+		border-bottom-right-radius: 0.7333333333333333rem;
+		color: #fff;
+		text-align: center;
+	}
+	.sign-page-tips .tips-title-silist p{
+		font-size: 0.9333333333333333rem;
+		padding: 0.9333333333333333rem 0 0.3333333333333333rem 0;
+	}
+	.sign-page-tips .sign-tipss-to{
+		font-size: 0.8rem;
+		border: 2px solid #fff;
+		border-radius: 26px;
+		display: inline-block;
+		padding: 0.16666666666666666rem 1rem;
+	}
+	.sign-page-tips .sign-tips-img{
+		text-align: center;
+		margin-top: 2.933333333333333rem;
+	}
+	.sign-page-tips .sign-tips-img img{
+		width: 70%;
+		height: 70%;
+	}	
+</style>
+

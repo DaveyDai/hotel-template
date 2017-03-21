@@ -30,7 +30,6 @@
 						<img src="../../images/life_next_pages_arrow@2x.png"/>
 					</div>
 				</div>					
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
 			</article>	
 		</section>
 	</div>
@@ -52,7 +51,7 @@
 	}
 	#orderAll .orderbgstyle{
 		border-bottom:0;
-		margin-top: 20px;
+		margin-bottom: 20px;
 		background-color: #fff;
 		padding: 0;
 	}

@@ -17,11 +17,11 @@
 			<article class="content">
 				<div class="c-hotel-tall">
 					<img src="../../images/home_notice@2x.png"/>
-					<span>{{getNotice.text}}</span>
+					<span>{{notice.text}}</span>
 				</div>
 				<div class="c-hotel-centent">
 					<div class="c-h-in c-h-img">
-						<img src="../../images/home_shop_image@2x.png"/>
+						<img v-bind:src="storeInfo.logo"/>
 					</div>
 					<div class="c-h-in c-h-cent">
 						<div class="c-h-name">
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<div class="c-h-in c-h-sfyy">
-						<div class="c-h-yyz active"><span>营业中</span></div>
+						<div class="c-h-yyz" v-bind:class="{active:isBusiness}"><span v-text="isBusiness&&'营业中'||'未营业'"></span></div>
 					</div>
 				</div>
 				<div class="c-hotel-modular">
@@ -59,7 +59,7 @@
 						<div class="hot-h-price">¥ {{hotItem.price}}/{{hotItem.unit}}</div>
 					</div>
 				</div>
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
+				<!--<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>-->
 			</article>				
 		</section>
 		<div class="moveright moveright_p" style="display: none;">
@@ -123,7 +123,8 @@
         		homeMenuList: [],
         		hotProductList: [],
         		storeInfo:{},
-        		getNotice:{"text":"优雅 休闲 浪漫的主题 特色 开启您的DIY生活空间"}
+        		isBusiness:true,
+        		notice:{"text":"优雅 休闲 浪漫的主题 特色 开启您的DIY生活空间"}
         	}
         },    	
         mounted: function () {
@@ -135,6 +136,7 @@
             this.getStoreInfo();
             this.getHomeMenu();
             this.getHotProduct();
+            this.getNotice();
         },
         methods: {
 			getStoreInfo:function(){
@@ -142,6 +144,8 @@
 		         	var results = response.data;
 		         	if(results.code === 200){
 		         		 this.storeInfo = results.data[0];
+		         		 sessionStorage.setItem("storeInfo",JSON.stringify(results.data[0]));
+		         		 this.isBusiness = this.timeCheck(results.data[0].open_time,results.data[0].end_time)
 		         	}else{
 		         		layerUtils.iAlert(results.message||"请求服务器失败");
 		         	}
@@ -180,7 +184,7 @@
 		         this.$http.post(configuration.global.serverPath + "/api/Tabbar/getNotice",{shopid:configuration.global.shopid},{headers: {'Content-Type': 'application/x-www-form-urlencoded'},emulateJSON:true}).then(function (response) {
 		         	var results = response.data;
 		         	if(results.code === 200){
-		         		 this.getNotice = results.data;
+		         		 this.notice = results.data||this.notice;
 		         	}else{
 		         		layerUtils.iAlert(results.message||"请求服务器失败");
 		         	}
@@ -202,6 +206,14 @@
 		    shopDetails:function(shopItem){
 		    	sessionStorage.setItem("shopItem",JSON.stringify(shopItem));
 		    	this.$router.push({name:'shopdetails',query: {shopDetail:JSON.stringify(shopItem)}});
+		    },
+		    timeCheck:function(open_time,end_time){
+		    	open_time = open_time || "00:00";
+		    	end_time = end_time || "23:59";
+		    	var dateNew = new Date();
+		    	var open_hours = open_time.slice(0,open_time.indexOf(":")),open_minutes = open_time.slice(open_time.indexOf(":")+1);
+		    	var end_hours = end_time.slice(0,end_time.indexOf(":")),end_minutes = end_time.slice(end_time.indexOf(":")+1);
+		    	return open_hours == end_hours?Number(open_minutes)<=dateNew.getMinutes() && dateNew.getMinutes()<=Number(end_minutes):Number(open_hours)<=dateNew.getHours() && dateNew.getHours()<=Number(end_hours);
 		    }
         }
     }

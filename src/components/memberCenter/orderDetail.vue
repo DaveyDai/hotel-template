@@ -10,18 +10,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="bgstyle clearfix structure martop5 new_obrdrinf" style="padding:0;margin:5px -1px -1px -1px;">
+				<div class="bgstyle clearfix structure martop5 new_obrdrinf" style="padding:0;margin:5px -1px -1px -1px;box-shadow: none;">
 					<ul>
 						<li><span class="color666 norder_left">订单编号：</span><span class="norder_right">{{orderDetail.id}}</span></li>
 						<li><span class="color666 norder_left">下单时间：</span><span class="norder_right">{{orderDetail.create_time}}</span></li>
 						<li><span class="color666 norder_left">店内房号：</span><span class="norder_right">{{orderDetail.room_id}}</span></li>
 						<li><span class="color666 norder_left">订单状态：</span><span class="norder_right" style="color:#FF4B42;">{{orderStatus()}}</span></li>
-						<div class="clear orderpay"></div>
-						<li><span class="color666 norder_left">消费情况：</span><span class="norder_right">消费额{{orderDetail.total}}元 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总计金额{{orderDetail.total}}元</span></li>
+						<li><span class="color666 norder_left">订单总金额：</span><span class="norder_right">{{orderDetail.total}}元</span></li>
 					</ul>
 				</div>
-				<div class="disnone p_re express_ajax"></div>
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
 			</article>	
 		</section>
 		<div class="detail-evaluate">
@@ -31,11 +28,14 @@
 </template>
 <style>
 	#orderDetail .recordtopspa{
-		background-color: #EFEFEF;
+		background-color: #EAEAEA;
 		color: #333;
 	}
 	#orderDetail .re1{
 		text-align: center;
+	}
+	#orderDetail .new_obrdrinf li{
+		box-shadow: none;
 	}
 	.detail-evaluate{
 		position: fixed;
@@ -43,7 +43,7 @@
 		bottom:3.26rem;
 		background-color: #fff;
 		width: 100%;
-		height: 2.2rem;
+		height: 2.5rem;
 		text-align: center;
 	}
 	.detail-evaluate p{
@@ -64,7 +64,6 @@
         	}
         },    	
         mounted: function () {
-	      	console.log("加载首页...");
             this.orderDetail = JSON.parse(sessionStorage.getItem("orderDetail"));
         },
         methods: {

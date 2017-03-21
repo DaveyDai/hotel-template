@@ -18,7 +18,6 @@
 					<span><img src="../../images/home_shop_image@2x.png"/></span>
 					<textarea v-model="messParam.text" name="mess" rows="" cols="" placeholder="环境如何？服务是否周到？快来评价一下吧~"></textarea>
 				</div>
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
 			</article>	
 		</section>
 		<div class="ly_header"><span id="ly_showalert" v-on:click="goMess()" ><a href="javascript:void(0);">发表评论</a></span></div>

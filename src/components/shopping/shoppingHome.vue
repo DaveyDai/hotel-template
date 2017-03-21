@@ -9,23 +9,25 @@
 							<div class="information-pice"><span class="infor-p-span">¥ {{item.price}}元/{{item.unit}}</span><span class="infor-j-span">积分    {{item.point}}</span></div>
 						</div>
 						<div class="commodity-choice comm-li-info">
-							<div class="commodity-change-j" v-on:mousedown="redCommodity(item,$event)" >一</div>
+							<div class="commodity-change-j" v-on:mousedown="redCommodity(item,$event)" ></div>
 							<div class="commodity-change-input">{{item.num}}</div>
-							<div class="commodity-change-z" v-on:mousedown="addCommodity(item,$event)" >+</div>		
+							<div class="commodity-change-z" v-on:mousedown="addCommodity(item,$event)" ></div>		
 							<div class="commodity-change-1 c-red1">-1</div>
 							<div class="commodity-change-1 c-add1">+1</div>							
 						</div>
 					</li>
+					<li class="all-li-pay"></li>
+<!--					<li class="all-li-pay">总积分:<span>&nbsp;{{shopOrder.point}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总金额:<span>¥&nbsp;{{shopOrder.money}}</span></li>-->
 				</div>
-				<div class="order-details">
+				<!--<div class="order-details">
 					<div class="o-details-n"><span>订单详情</span><img class="orders-hide-img" src="../../images/shop_down_arrow@2x.png"/></div>
 					<div class="o-details-c">
 						<div class="o-details-pice">总计:<span>  {{shopOrder.money}}</span> 元</div>
-						<div class="o-details-pice">积分:<span>  {{shopOrder.point}}</span> 积分</div>
+						<div class="o-details-pice">积分:<span>  {{shopOrder.point}}</span> 积分</div><span class="orders-hide-img"></span>
 					</div>
-				</div>
+				</div>-->
 				<div class="pice-mode">
-					<div class="pice-mode-n o-details-n"><span>付款方式</span><img class="orders-hide-img" src="../../images/shop_down_arrow@2x.png"/></div>
+					<div class="pice-mode-n o-details-n"><span class="pay-tips"></span><span class="pay-tips-name">支付方式</span></div>
 					<div class="pice-mode-choice"><span v-for="(item,index) in payType" v-bind:class="{active:index==0}" v-on:mousedown="changePay(index,$event)" >{{item}}</span></div>
 				</div>
 				<div class="pice-mode order-mode" style="display: none;">
@@ -33,12 +35,12 @@
 					<div class="pice-mode-choice"><span class="active">店内消费</span><span>外送业务</span><span>店内自取</span></div>
 				</div>
 				<div class="order-information">
+					<div class="pice-mode-n o-details-n"><span class="pay-tips"></span><span class="pay-tips-name">订单备注</span></div>
 					<div class="o-room-infor"><span>房间号*</span><input type="tel" placeholder="在此输入房间号*" maxlength="8" v-model="shopOrder.room_id" /></div>
 					<div class="o-room-infor"><span>称呼</span><input type="text" placeholder="在此输入称呼" maxlength="20" v-model="shopOrder.name" /></div>
 					<div class="o-room-infor"><span>电话</span><input type="tel" placeholder="在此输入电话" maxlength="11" v-model="shopOrder.phone" /></div>
 					<div class="o-room-beizhu"><span>备注说明</span><div><textarea name="" rows="" cols="" placeholder="在此输入备注，如。。。。。" v-model="shopOrder.remark" ></textarea></div></div>
 				</div>
-				<div class="hotel-copyright">Copyright @ 万达广场 版权所有</div>
 			</article>
 			<!--<div style="position: relative;">--> 
 			<div class="pice-pay" id="pice-pay">
@@ -154,6 +156,13 @@
 		    		return false;
 		    	}
 		    	return true;
+		    },
+		    changShow:function(even){
+		    	var height = $(even.target).siblings(".pice-mode-choice").is(":visible")&&"2rem"||"6rem";
+		    	$(even.target).siblings(".pice-mode-choice").slideToggle(300,function(){
+		    		$(even.target).toggleClass("is-show");
+		    	});
+		    	$(even.target).parent().animate({height:height},300);
 		    }
         }
     }
