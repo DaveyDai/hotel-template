@@ -103,7 +103,7 @@
 					<div class="tips-fenge"></div>
 				</div>
 				<div class="tips-title-silist">
-					<p>恭喜您！您连续签到3天</p>
+					<p>恭喜您！明天再接再厉哦~</p>
 					<div class="sign-tipss-to" @click="checkSignList()">签到记录</div>
 				</div>
 			</div>
@@ -129,13 +129,13 @@
         },
         methods: {
 			signHide:function(){
-				$("#memberHome #signCheckN").hide();
+				$("#memberHome #signCheckN").fadeOut();
 			},
 		    signCheck:function(){
 		        this.$http.post(configuration.global.serverPath + "/api/Personal/signIn",{token:sessionStorage.getItem("token")},{headers: {'Content-Type': 'application/x-www-form-urlencoded'},emulateJSON:true}).then(function (response) {
 		         	var results = response.data;
 		         	if(results.code === 200){
-		         		$("#memberHome #signCheckN").show();
+		         		$("#memberHome #signCheckN").fadeIn();
 		         	}else{
 		         		layerUtils.iAlert(results.message||"请求服务器失败");
 		         	}
@@ -174,8 +174,8 @@
 	#memberHome .hotel-copyright{
 		margin-bottom: 50px;
 	}
-	#memberHome .nmemlist li .bgstyle{
-		
+	#memberHome .nmemlist li,#memberHome .nmemlist li .bgstyle{
+		-webkit-tap-highlight-color: rgba(200,200,200,0);
 	}
 	#memberHome .nmemlist{
 		margin-top: 0.67rem;

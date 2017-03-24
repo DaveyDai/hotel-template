@@ -13,7 +13,7 @@
 			var layerHtml = '<div style="position: absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform: translate(-50%,-50%);background-color:#fff;z-index:5000;border-radius:9px;width: 76%;height: auto;text-align: center;color:#fff;">' +
 				'<div style="padding:0.6rem 0;color: #000;font-size: 1rem;font-weight: bold;">提示</div>' + 
 				'<div id="layerIaContent" style="padding:0 0.6rem 1.5rem 0.6rem;word-break:break-all;color: #666;font-size: 0.87rem;overflow: auto;max-height:' + offsetHeight*0.7 + 'px;">' +
-				(typeof layerContent === "string"?layerContent:(layerContent && JSON.stringify(layerContent) || "")) +
+				(typeof layerContent === "string" || typeof layerContent === "boolean"?layerContent:(layerContent && JSON.stringify(layerContent) || "")) +
 				'</div><div style="padding: 0.5rem 0;border-top: 1px solid #E5E5E5;width: 100%;">' +
 				'<a id="layerModelBtn" href="javascript:void(0);" style="display:block;color: #4ac60c;font-size: 0.93rem;">' + (btnContent||"确定") + '</a></div></div>';
 			var layerModelNode = document.getElementById("layerAlertModel");
